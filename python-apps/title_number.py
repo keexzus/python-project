@@ -2,4 +2,4 @@ text = input("Enter a title: ")
 
 length = len(text)
 
-print(length)
+print("The length of the title is: ", length)
