@@ -11,9 +11,9 @@ while True:
             todo = input("Enter an action: ")
             todos.append(todo)
         case 'show' | 'display':
-            for item in todos:
-                item = item.title()
-                print(item)
+            for index, item in enumerate(todos):
+                row = f"{index}-{item}"
+                print(row)
         case 'edit':
             number = int(input("Number of the todo to edit: "))
             number = number - 1
@@ -26,8 +26,19 @@ while True:
         
 print("Bye!")
      
+#      old code:
+# case 'show' | 'display':
+#             for item in todos:
+#                 item = item.title()
+#                 print(item)
 
 # while True:
 #     todo = input(user_prompt)
 #     todos = [todo]
 #     print(todos)
+
+# lines 13 to 16
+# case 'show' | 'display':
+#             for index, item in enumerate(todos):
+#                 item = item.title()
+#                 print(index, '-', item)
