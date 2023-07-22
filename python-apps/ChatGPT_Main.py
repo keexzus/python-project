@@ -3,8 +3,8 @@ import os
 todos = []
 
 # Check if the file exists before reading it
-if os.path.exists('python-apps/todos.txt'):
-    with open('python-apps/todos.txt', 'r') as file:
+if os.path.exists('python-apps/todosChat.txt'):
+    with open('python-apps/todosChat.txt', 'r') as file:
         todos = file.readlines()
 
 while True:
@@ -16,7 +16,7 @@ while True:
             todo = input("Enter a new task: ") + "\n"
             todos.append(todo)
 
-            with open('python-apps/todos.txt', 'w') as file:
+            with open('python-apps/todosChat.txt', 'w') as file:
                 file.writelines(todos)
 
         case 'show':
@@ -31,7 +31,7 @@ while True:
                 new_todo = input("Enter the new task: ")
                 todos[number] = new_todo + "\n"
 
-                with open('python-apps/todos.txt', 'w') as file:
+                with open('python-apps/todosChat.txt', 'w') as file:
                     file.writelines(todos)
             except (ValueError, IndexError):
                 print("Invalid task number. Please try again.")
@@ -42,7 +42,7 @@ while True:
                 number -= 1
                 todos.pop(number)
 
-                with open('python-apps/todos.txt', 'w') as file:
+                with open('python-apps/todosChat.txt', 'w') as file:
                     file.writelines(todos)
             except (ValueError, IndexError):
                 print("Invalid task number. Please try again.")
