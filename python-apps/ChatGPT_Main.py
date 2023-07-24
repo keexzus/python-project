@@ -2,6 +2,17 @@ import os
 
 todos = []
 
+
+def reset_file_to_empty():
+    # Check if the file exists before resetting it
+    if os.path.exists('python-apps/todosChat.txt'):
+        with open('python-apps/todosChat.txt', 'w') as file:
+            file.truncate(0)  # Truncate the file to remove all contents
+            print('All tasks deleted.')
+
+# Rest of the code remains the same
+
+
 # Check if the file exists before reading it
 if os.path.exists('python-apps/todosChat.txt'):
     with open('python-apps/todosChat.txt', 'r') as file:
@@ -46,6 +57,11 @@ while True:
                     file.writelines(todos)
             except (ValueError, IndexError):
                 print("Invalid task number. Please try again.")
+
+        case 'reset':  
+            reset_file_to_empty()
+            todos = []  # Also reset the in-memory list
+            print("File reset to empty.")
 
         case 'exit':
             break
