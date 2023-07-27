@@ -28,7 +28,7 @@ for i in range(TOTAL_PROBLEMS):
         guess = input("Problem #" + str(i + 1) + ": " + expr + " = ")
         if guess == str(answer):
             break
-        wrong == 1
+        wrong += 1
     
 end_time = time.time()
 total_time = round(end_time - start_time, 2)

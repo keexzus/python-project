@@ -10,18 +10,18 @@ while True:
         case 'add':
             todo = input("Enter an action: ") + "\n"
             
-            file = open('python-apps/todos.txt', 'r')
+            file = open('/todo.txt', 'r')
             todos = file.readlines()
             file.close()
 
             todos.append(todo)
 
-            file = open('python-apps/todos.txt', 'w')
+            file = open('/todo.txt', 'w')
             file.writelines(todos)
             file.close()
 
         case 'show' | 'display':
-            file = open('todos.txt', 'r')
+            file = open('/todo.txt', 'r')
             todos = file.readlines()
             file.close()
             
