@@ -26,9 +26,12 @@ while True:
             # file.close()
 
         case 'show' | 'display':
-            file = open('text-todo.txt', 'r')
-            todos = file.readlines()
-            file.close()
+        #     file = open('text-todo.txt', 'r')
+        #     todos = file.readlines()
+        #     file.close()
+
+            with open('text-todo.txt', 'r') as file:
+                todos = file.readlines()
 
             new_todos = []
 
@@ -47,12 +50,33 @@ while True:
         case 'edit':
             number = int(input("Number of the todo to edit: "))
             number = number - 1
-            new_todo = input("Enter new todo: ")
-            todos[number] = new_todo
+            
+            with open('text-todo.txt', 'r') as file:
+                todos = file.readlines()
+            # print('Here is existing tasks: ', todos)
 
+            new_todo = input("Enter new todo: ")
+            todos[number] = new_todo  + '\n'
+
+            print('Here is New list of tasks: ', todos)
+
+            with open('text-todo.txt', 'w') as file:
+                file.writelines(todos)
+            
+            
+    
         case 'complete':
             number = int(input("Number of of task to delete: "))
-            todos.pop(number -1 )
+            with open('text-todo.txt', 'r') as file:
+                todos = file.readlines()
+            index = number - 1
+            task_to_remove = todos[index].strip('\n')
+            todos.pop(index)
+            with open('text-todo.txt', 'w') as file:
+                file.writelines(todos)
+                
+            message = f"Task {task_to_remove} was removed."
+            print(message)
         case 'exit':
             break
         case _:
