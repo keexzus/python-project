@@ -1,5 +1,12 @@
-empty task
-cool things
-task 8
-task 9
-range
+add
+falcon
+client 
+school
+cool cats
+become successful programmer
+become programmer
+more lines to skip
+the code is working
+list slicing
+refactor code
+fat cats

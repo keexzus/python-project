@@ -5,9 +5,11 @@ while True:
     user_action = input("Type add, show, edit, complete, or exit: ")
     user_action = user_action.strip()
 
-    match user_action:
-        case 'add':
-            todo = input("Enter an action: ") + "\n"
+    # match user_action:
+        # case 'add':
+    if 'add' in user_action or 'new' in user_action:
+            todo = user_action[4:] + "\n"
+            # todo = input("Enter an action: ") + "\n"
             
             # file = open('text-todo.txt', 'r')
             # todos = file.readlines()
@@ -25,10 +27,11 @@ while True:
             # file.writelines(todos)
             # file.close()
 
-        case 'show' | 'display':
+        # case 'show' | 'display':
         #     file = open('text-todo.txt', 'r')
         #     todos = file.readlines()
         #     file.close()
+    elif 'show' in user_action:
 
             with open('text-todo.txt', 'r') as file:
                 todos = file.readlines()
@@ -47,9 +50,15 @@ while True:
                 print(row, end = '')
                 # print("length is", index + 1)
                 # print((len(todos)))
-        case 'edit':
-            number = int(input("Number of the todo to edit: "))
+
+        # case 'edit':
+    elif 'edit' in user_action:
+           
+            number = int(user_action[5:])
+            print(number)
             number = number - 1
+            # number = int(input("Number of the todo to edit: "))
+            # number = number - 1
             
             with open('text-todo.txt', 'r') as file:
                 todos = file.readlines()
@@ -65,8 +74,10 @@ while True:
             
             
     
-        case 'complete':
-            number = int(input("Number of of task to delete: "))
+        # case 'complete':
+    elif 'complete' in user_action:
+            number = int(user_action[8:])
+
             with open('text-todo.txt', 'r') as file:
                 todos = file.readlines()
             index = number - 1
@@ -77,10 +88,14 @@ while True:
                 
             message = f"Task {task_to_remove} was removed."
             print(message)
-        case 'exit':
+        # case 'exit':
+    elif 'exit' in user_action:
             break
-        case _:
-            print("You entered an unknown command.")
+    else:
+         print("Command is not valid.")
+        # case _:
+    # else:
+    #     print("You entered an unknown command.")
         
 print("Bye!")
      
